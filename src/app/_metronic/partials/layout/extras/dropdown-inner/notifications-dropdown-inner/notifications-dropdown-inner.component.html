@@ -1,0 +1,111 @@
+<!--begin::Header-->
+<ng-container *ngIf="extrasNotificationsDropdownStyle === 'light'">
+    <div class="d-flex flex-column pt-12 bg-dark-o-5 rounded-top">
+        <!--begin::Title-->
+        <h4 class="d-flex flex-center">
+            <span class="text-dark">Notifications</span>
+            <span class="btn btn-text btn-success btn-sm font-weight-bold btn-font-md ml-2">0 new</span>
+        </h4>
+        <!--end::Title-->
+
+        <!--begin::Tabs-->
+        <ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-primary mt-3 px-8" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link cursor-pointer" data-toggle="tab"
+                   (click)="setActiveTabId('topbar_notifications_notifications')"
+                   [ngClass]="getActiveCSSClasses('topbar_notifications_notifications')">Alerts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link cursor-pointer" data-toggle="tab"
+                   (click)="setActiveTabId('topbar_notifications_events')"
+                   [ngClass]="getActiveCSSClasses('topbar_notifications_events')">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link cursor-pointer"
+                   data-toggle="tab"
+                   (click)="setActiveTabId('topbar_notifications_logs')"
+                   [ngClass]="getActiveCSSClasses('topbar_notifications_logs')">Logs</a>
+            </li>
+        </ul>
+        <!--end::Tabs-->
+    </div>
+</ng-container>
+<ng-container *ngIf="extrasNotificationsDropdownStyle === 'dark'">
+    <div class="d-flex flex-column pt-12 bgi-size-cover bgi-no-repeat rounded-top"
+         style="background-image: url('./assets/media/misc/bg-1.jpg');">
+        <!--begin::Title-->
+        <h4 class="d-flex flex-center rounded-top">
+            <span class="text-white">User Notifications</span>
+            <span class="btn btn-text btn-success btn-sm font-weight-bold btn-font-md ml-2">0 new</span>
+        </h4>
+        <!--end::Title-->
+
+        <!--begin::Tabs-->
+        <ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-line-transparent-white nav-tabs-line-active-border-success mt-3 px-8"
+            role="tablist">
+            <li class="nav-item">
+                <a class="nav-link cursor-pointer"
+                   data-toggle="tab"
+                   (click)="setActiveTabId('topbar_notifications_notifications')"
+                   [ngClass]="getActiveCSSClasses('topbar_notifications_notifications')">Alerts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link cursor-pointer"
+                   data-toggle="tab"
+                   (click)="setActiveTabId('topbar_notifications_events')"
+                   [ngClass]="getActiveCSSClasses('topbar_notifications_events')">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link cursor-pointer"
+                   data-toggle="tab"
+                   (click)="setActiveTabId('topbar_notifications_logs')"
+                   [ngClass]="getActiveCSSClasses('topbar_notifications_logs')">Logs</a>
+            </li>
+        </ul>
+        <!--end::Tabs-->
+    </div>
+</ng-container>
+<!--end::Header-->
+
+<!--begin::Content-->
+<div class="tab-content">
+    <!--begin::Tabpane-->
+    <div class="tab-pane p-8" id="topbar_notifications_notifications" role="tabpanel"
+         [ngClass]="getActiveCSSClasses('topbar_notifications_notifications')">
+        <!--begin::Nav-->
+        <div class="d-flex flex-center text-center text-muted min-h-200px">
+            All caught up!
+            <br/>
+            No new alerts.
+        </div>
+        <!--end::Nav-->
+    </div>
+    <!--end::Tabpane-->
+
+    <!--begin::Tabpane-->
+    <div class="tab-pane" id="topbar_notifications_events" role="tabpanel"
+         [ngClass]="getActiveCSSClasses('topbar_notifications_events')">
+        <!--begin::Nav-->
+        <div class="d-flex flex-center text-center text-muted min-h-200px">
+            All caught up!
+            <br/>
+            No new events.
+        </div>
+        <!--end::Nav-->
+    </div>
+    <!--end::Tabpane-->
+
+    <!--begin::Tabpane-->
+    <div class="tab-pane" id="topbar_notifications_logs" role="tabpanel"
+         [ngClass]="getActiveCSSClasses('topbar_notifications_logs')">
+        <!--begin::Nav-->
+        <div class="d-flex flex-center text-center text-muted min-h-200px">
+            All caught up!
+            <br/>
+            No new logs.
+        </div>
+        <!--end::Nav-->
+    </div>
+    <!--end::Tabpane-->
+</div>
+<!--end::Content-->

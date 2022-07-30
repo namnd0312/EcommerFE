@@ -1,0 +1,22 @@
+<div class="fix-modal-content">
+	<div class="modal-header fix-modal-header">
+		<h4 class="modal-title fix-title">{{(title ? title : 'message.common.notify') | translate}}</h4>
+		<button class="fix-close"
+				(click)="activeModal.close(false)">
+			<span class="material-icons">close</span>
+		</button>
+	</div>
+	<div class="modal-body fix-modal-body">
+		<div class="text-center mt-5" style="color: black;">
+			<span>{{content | translate}}</span>
+		</div>
+		<div class="text-center mt-4 mb-5">
+			<div>
+				<button type="button" class="btn btn-sm btn-outline-danger mr-2"
+						(click)="this.activeModal.close(false);">{{'BUTTON.CANCEL' | translate}}</button>
+				<button type="button" class="btn btn-sm btn-outline-danger mr-2"
+						(click)="activeModal.close(true)">{{'BUTTON.AGREE' | translate}}</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+            <div class="col-sm-12 offset-sm-0 col-md-6 offset-md-3">
+                <div class="form-group row">
+                    <label for="roleName" class="sb-label-form col-sm-3">Tên vai trò</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="roleName"
+                               formControlName="roleName" placeholder="Tên vai trò"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="roleId" class="sb-label-form col-sm-3">Mã vai trò</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="roleId"
+                               formControlName="roleId" placeholder="Mã vai trò"/>
+                    </div>
+                </div>
+                <div class="form-group row mb-0">
+                    <label class="col-sm-3"></label>
+                    <div class="col-sm-9 text-right">
+                        <button class="btn btn-danger btn-sm"><i class="fa fa-search"></i>Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="separator separator-dashed"></div>
+    <div class="card-body text-right p-4 pr-0">
+        <button type="submit" class="btn btn-success mr-2"><i class="fa fa-plus"></i>Tạo mới</button>
+        <button type="submit" class="btn btn-success mr-2"><i class="fa fa-edit"></i>Sửa</button>
+        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>Xóa</button>
+    </div>
+    <div class="card-body p-0 m-0">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="text-center">
+                    <mat-checkbox id="checkAll" (change)="checkAllItems($event)"></mat-checkbox>
+                </th>
+                <th>Tên vai trò</th>
+                <th>Mã vai trò</th>
+                <th>Role_father</th>
+                <th>Mô tả</th>
+                <th>Người nhập</th>
+                <th>Người duyệt</th>
+                <th>Thời gian</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of way4CardList; let i = index">
+                <td class="text-center">
+                    <mat-checkbox id="{{item.cardNumber}}" (change)="checkItems($event, item)"
+                                  [checked]="item.checked"></mat-checkbox>
+                </td>
+                <td>{{item.cardNumber}}</td>
+                <td>{{item.openDate}}</td>
+                <td>{{item.cardType}}</td>
+                <td>{{item.status}}</td>
+                <td>{{item.cardId}}</td>
+                <td>{{item.customerId}}</td>
+                <td>{{item.customerName}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <mat-paginator [pageIndex]="0" [pageSizeOptions]="[5,10,25,50]" [pageSize]="5" [length]="20"></mat-paginator>
+    </div>
+</div>
